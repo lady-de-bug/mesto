@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="./vendor/normalize.css" />
     <link rel="stylesheet" href="./vendor/fonts.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" defer></script>
   </head>
   <body class="page">
-    <div class="content">
+    <!-- <div class="content"> -->
       <section class="header">
         <img
           class="header__logo"
@@ -18,6 +19,7 @@
           alt="Логотип компании."
         />
       </section>
+      <div class="content">
       <main class="main">
         <section class="profile">
           <div class="profile__content">
@@ -151,33 +153,36 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
-      <div class="popup">
-        <div class="popup__container">
-          <h2 class="popup__edit-profile">Редактировать профиль</h2>
+    </div>
 
+    <div class="popup">
+      <div class="popup__container">
+        <h2 class="popup__edit-profile">Редактировать профиль</h2>
+        <div class="popup__form">
           <input
             type="text"
-            placeholder="Жак-Ив Кусто"
-            class="popup__input-name"
+            placeholder="Имя"
+            class="popup__input popup__input_type_name"
           />
           <input
             type="text"
-            placeholder="Исследователь океана"
-            class="popup__input-occupation"
+            placeholder="О себе"
+            class="popup__input popup__input_type_occupation"
           />
-          <button
-            class="popup__submit-btn"
-            type="button"
-            aria-label="Отправка формы."
-          >
-            Сохранить
-          </button>
-          <button
-            class="popup__close-icon"
-            type="button"
-            aria-label="Закрыть форму."
-          ></button>
         </div>
+
+        <button
+          class="popup__submit-btn"
+          type="button"
+          aria-label="Отправка формы."
+        >
+          Сохранить
+        </button>
+        <button
+          class="popup__close-icon"
+          type="button"
+          aria-label="Закрыть форму."
+        ></button>
       </div>
     </div>
   </body>
