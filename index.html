@@ -5,155 +5,151 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
-    <link rel="stylesheet" href="./vendor/normalize.css" />
-    <link rel="stylesheet" href="./vendor/fonts.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <script src="./index.js" defer></script>
   </head>
   <body class="page">
-    <!-- <div class="content"> -->
-      <section class="header">
-        <img
-          class="header__logo"
-          src="./images/logo.svg"
-          alt="Логотип компании."
-        />
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./images/logo.svg"
+        alt="Логотип компании."
+      />
+    </header>
+
+    <main class="main">
+      <section class="profile">
+        <div class="profile__content">
+          <img
+            src="./images/Avatar.png"
+            alt="Аватарка с изображением Кусто"
+            class="profile__avatar"
+          />
+          <div class="profile__info-section">
+            <div class="profile__profile-info">
+              <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+              <p class="profile__user-occupation">Исследователь океана</p>
+            </div>
+            <button
+              class="profile__edit-button"
+              type="button"
+              aria-label="Кнопка редактирования профиля."
+            ></button>
+          </div>
+        </div>
+        <button
+          class="profile__add-button"
+          type="button"
+          aria-label="Кнопка добавить данные."
+        ></button>
       </section>
-      <div class="content">
-      <main class="main">
-        <section class="profile">
-          <div class="profile__content">
-            <img
-              src="./images/Avatar.png"
-              alt="Аватарка с изображением Кусто"
-              class="profile__avatar"
-            />
-            <div class="profile__info-section">
-              <div class="profile__profile-info">
-                <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-                <p class="profile__user-occupation">Исследователь океана</p>
-              </div>
+      <section class="elements" aria-label="Фотографии мест России.">
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/karachaevsk.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Карачаевск</h2>
               <button
-                class="profile__edit-button"
-                type="button"
-                aria-label="Кнопка редактирования профиля."
+                class="elements__place-like"
+                aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
-          <button
-            class="profile__add-button"
-            type="button"
-            aria-label="Кнопка добавить данные."
-          ></button>
-        </section>
-        <section class="elements" aria-label="Фотографии мест России.">
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/karachaevsk.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Карачаевск</h2>
-                <button
-                  class="elements__place-like"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
+        </article>
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/elbrus.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Гора Эльбруc</h2>
+              <button
+                class="elements__place-like"
+                type="button"
+                aria-label="Кнопка нравится."
+              ></button>
             </div>
-          </article>
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/elbrus.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Гора Эльбруc</h2>
-                <button
-                  class="elements__place-like"
-                  type="button"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/domby.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Домбай</h2>
+              <button
+                class="elements__place-like"
+                type="button"
+                aria-label="Кнопка нравится."
+              ></button>
             </div>
-          </article>
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/domby.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Домбай</h2>
-                <button
-                  class="elements__place-like"
-                  type="button"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/elbrus.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Гора Эльбрус</h2>
+              <button
+                class="elements__place-like"
+                type="button"
+                aria-label="Кнопка нравится."
+              ></button>
             </div>
-          </article>
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/elbrus.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Гора Эльбрус</h2>
-                <button
-                  class="elements__place-like"
-                  type="button"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/domby.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Домбай</h2>
+              <button
+                class="elements__place-like"
+                type="button"
+                aria-label="Кнопка нравится."
+              ></button>
             </div>
-          </article>
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/domby.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Домбай</h2>
-                <button
-                  class="elements__place-like"
-                  type="button"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
+          </div>
+        </article>
+        <article class="elements__element">
+          <img
+            class="elements__image"
+            src="./images/karachaevsk.jpg"
+            alt="Монастырь в Карачаевске."
+          />
+          <div class="elements__mask-group">
+            <div class="elements__choose-place">
+              <h2 class="elements__name-place">Карачаево-Черкессия</h2>
+              <button
+                class="elements__place-like"
+                type="button"
+                aria-label="Кнопка нравится."
+              ></button>
             </div>
-          </article>
-          <article class="elements__element">
-            <img
-              class="elements__image"
-              src="./images/karachaevsk.jpg"
-              alt="Монастырь в Карачаевске."
-            />
-            <div class="elements__mask-group">
-              <div class="elements__choose-place">
-                <h2 class="elements__name-place">Карачаево-Черкессия</h2>
-                <button
-                  class="elements__place-like"
-                  type="button"
-                  aria-label="Кнопка нравится."
-                ></button>
-              </div>
-            </div>
-          </article>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
-    </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
 
     <div class="popup">
       <div class="popup__container">
@@ -163,11 +159,13 @@
             type="text"
             placeholder="Имя"
             class="popup__input popup__input_type_name"
+            aria-label="Введите имя."
           />
           <input
             type="text"
             placeholder="О себе"
             class="popup__input popup__input_type_occupation"
+            aria-label="Введите профессию."
           />
         </div>
 

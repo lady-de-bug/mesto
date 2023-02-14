@@ -1,0 +1,12 @@
+.main {
+  box-sizing: border-box;
+  max-width: 918px;
+  margin: 0 auto;
+  padding: 40px 19px 0px;
+}
+
+@media (max-width: 550px) {
+  .main {
+    padding-top: 42px;
+  }
+}

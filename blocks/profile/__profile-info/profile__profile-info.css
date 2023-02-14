@@ -1,0 +1,14 @@
+.profile__profile-info {
+  max-width: 294px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+  gap: 8px;
+}
+
+@media (max-width: 550px) {
+  .profile__profile-info {
+    padding-top: 26px;
+  }
+}

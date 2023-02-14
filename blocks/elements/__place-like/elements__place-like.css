@@ -1,0 +1,16 @@
+.elements__place-like {
+  background-color: transparent;
+  border: none;
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/heart-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.elements__place-like:hover {
+  opacity: 0.8;
+}

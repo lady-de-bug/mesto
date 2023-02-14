@@ -18,24 +18,10 @@ popupСloseIcon.addEventListener("click", function () {
   popup.classList.remove("popup_opened");
 });
 
-function handleFormSubmit (event) {
+function handleFormSubmit(event) {
   event.preventDefault();
   profileUserName.textContent = popupInputName.value;
   profileUserOccupation.textContent = popupInputOccupation.value;
   popup.classList.remove("popup_opened");
-  }
-  popupSubmitButton.addEventListener('click', handleFormSubmit);
-
-
-  
-
-
-// let popupCloseIcon = popup.querySelector(".popup__close-icon");
-// let popupSubmitButton = popup.querySelector(".popup__submit-btn");
-// console.log(popupSubmitButton);
-// popupSubmitButton.addEventListener("click", function (event) {
-//   profileUserName.textContent = event.popupInputName.value;
-
-// });
-// let addProfileButton = profile.querySelector(".profile__add-button");
-console.log(popupInputOccupation);
+}
+popupSubmitButton.addEventListener("click", handleFormSubmit);

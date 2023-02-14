@@ -1,0 +1,13 @@
+.profile__info-section {
+  box-sizing: border-box;
+  display: flex;
+  gap: 18px;
+}
+
+@media (max-width: 550px) {
+  .profile__info-section {
+    gap: 10px;
+    margin-left: 46px;
+    margin-right: 19px;
+  }
+}
