@@ -44,101 +44,102 @@
         ></button>
       </section>
       <section class="elements" aria-label="Фотографии мест России.">
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/karachaevsk.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Карачаевск</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Карачаевск</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
+                type="button"
                 aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
         </article>
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/elbrus.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Гора Эльбруc</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Гора Эльбруc</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
                 type="button"
                 aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
         </article>
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/domby.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Домбай</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Домбай</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
                 type="button"
                 aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
         </article>
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/elbrus.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Гора Эльбрус</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Гора Эльбрус</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
                 type="button"
                 aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
         </article>
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/domby.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Домбай</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Домбай</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
                 type="button"
                 aria-label="Кнопка нравится."
               ></button>
             </div>
           </div>
         </article>
-        <article class="elements__element">
+        <article class="element">
           <img
-            class="elements__image"
+            class="element__image"
             src="./images/karachaevsk.jpg"
             alt="Монастырь в Карачаевске."
           />
-          <div class="elements__mask-group">
-            <div class="elements__choose-place">
-              <h2 class="elements__name-place">Карачаево-Черкессия</h2>
+          <div class="element__mask-group">
+            <div class="element__choose-place">
+              <h2 class="element__name-place">Карачаево-Черкессия</h2>
               <button
-                class="elements__place-like"
+                class="element__place-like"
                 type="button"
                 aria-label="Кнопка нравится."
               ></button>
@@ -154,28 +155,30 @@
     <div class="popup">
       <div class="popup__container">
         <h2 class="popup__edit-profile">Редактировать профиль</h2>
-        <div class="popup__form">
+        <form class="popup__form">
           <input
             type="text"
+            name="name"
             placeholder="Имя"
             class="popup__input popup__input_type_name"
             aria-label="Введите имя."
           />
           <input
             type="text"
+            name="occupation"
             placeholder="О себе"
             class="popup__input popup__input_type_occupation"
             aria-label="Введите профессию."
           />
-        </div>
+          <button
+            class="popup__submit-btn"
+            type="submit"
+            aria-label="Отправка формы."
+          >
+            Сохранить
+          </button>
+        </form>
 
-        <button
-          class="popup__submit-btn"
-          type="button"
-          aria-label="Отправка формы."
-        >
-          Сохранить
-        </button>
         <button
           class="popup__close-icon"
           type="button"

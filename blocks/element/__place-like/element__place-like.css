@@ -1,4 +1,4 @@
-.elements__place-like {
+.element__place-like {
   background-color: transparent;
   border: none;
   width: 22px;
@@ -11,6 +11,6 @@
   flex-shrink: 0;
 }
 
-.elements__place-like:hover {
-  opacity: 0.8;
+.element__place-like:hover {
+  opacity: 0.5;
 }
