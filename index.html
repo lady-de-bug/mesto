@@ -152,7 +152,7 @@
 
     <div class="popup">
       <div class="popup__container">
-        <h2 class="popup__edit-profile">Редактировать профиль</h2>
+        <h2 class="popup__edit-form">Редактировать профиль</h2>
         <form name="profile-form" class="popup__form">
           <input
             type="text"
@@ -183,41 +183,41 @@
           aria-label="Закрыть форму."
         ></button>
       </div>
+    </div>
 
-
-      <div class="popup-add-place">
-        <div class="popup-add-place__container">
-          <h2 class="popup-add-place__new-place">Новое место</h2>
-          <form name="place-form" class="popup-add-place__form">
-            <input
-              type="text"
-              name="name"
-              placeholder="Название"
-              class="popup-add-place__input popup-add-place__input_type_name"
-              aria-label="Введите название места."
-            />
-            <input
-              type="text"
-              name="link"
-              placeholder="Ссылка на картинку"
-              class="popup-add-place__input popup-add-place__input_type_occupation"
-              aria-label="Укажите ссылку."
-            />
-            <button
-              class="popup-add-place__submit-btn"
-              type="submit"
-              aria-label="Отправка формы."
-            >
-            Создать
-            </button>
-          </form>
-
+    <div class="popup new-item-popup">
+      <div class="popup__container">
+        <h2 class="popup__edit-form">Новое место</h2>
+        <form name="place-form" class="popup__form">
+          <input
+            type="text"
+            name="place"
+            placeholder="Название"
+            class="popup__input popup__input_type_place"
+            aria-label="Введите название места."
+          />
+          <input
+            type="text"
+            name="link"
+            placeholder="Ссылка на картинку"
+            class="popup__input popup__input_type_link"
+            aria-label="Укажите ссылку."
+          />
           <button
-            class="popup-add-place__close-icon"
-            type="button"
-            aria-label="Закрыть форму."
-          ></button>
-        </div>
+            class="popup__submit-btn"
+            type="submit"
+            aria-label="Отправка формы."
+          >
+            Создать
+          </button>
+        </form>
+
+        <button
+          class="popup__close-icon place-close-icon"
+          type="button"
+          aria-label="Закрыть форму."
+        ></button>
+      </div>
     </div>
   </body>
 </html>

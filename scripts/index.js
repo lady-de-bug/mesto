@@ -1,12 +1,39 @@
-let profile = document.querySelector(".profile");
-let editProfileButton = profile.querySelector(".profile__edit-button");
-let popup = document.querySelector(".popup");
-let popupСloseIcon = popup.querySelector(".popup__close-icon");
-let popupInputName = popup.querySelector(".popup__input_type_name");
-let popupInputOccupation = popup.querySelector(".popup__input_type_occupation");
-let profileUserName = profile.querySelector(".profile__user-name");
-let profileUserOccupation = profile.querySelector(".profile__user-occupation");
-let popupForm = popup.querySelector(".popup__form");
+const profile = document.querySelector(".profile");
+const editProfileButton = profile.querySelector(".profile__edit-button");
+const popup = document.querySelector(".popup");
+const popupСloseIcon = popup.querySelector(".popup__close-icon");
+const popupInputName = popup.querySelector(".popup__input_type_name");
+const popupInputOccupation = popup.querySelector(
+  ".popup__input_type_occupation"
+);
+const profileUserName = profile.querySelector(".profile__user-name");
+const profileUserOccupation = profile.querySelector(
+  ".profile__user-occupation"
+);
+const popupForm = popup.querySelector(".popup__form");
+
+const popupInputPlace = popup.querySelector(".popup__input_type_place");
+const popupInputLink = popup.querySelector(".popup__input_type_link");
+
+const profileAddButton = profile.querySelector(".profile__add-button");
+const newItemPopup = document.querySelector(".new-item-popup");
+const placeCloseIcon = newItemPopup.querySelector(".place-close-icon")
+console.log(placeCloseIcon);
+
+
+function openPlacePopup() {
+  newItemPopup.classList.add("popup_opened");
+}
+profileAddButton.addEventListener("click", openPlacePopup);
+
+function closePlacePopup() {
+  newItemPopup.classList.remove("popup_opened");
+}
+placeCloseIcon.addEventListener("click", closePlacePopup);
+
+// profileAddButton.addEventListener("click", function () {
+//   newItemPopup.classList.add("popup_opened");
+// });
 
 function openPopup() {
   popup.classList.add("popup_opened");
@@ -69,8 +96,8 @@ initialCards.forEach(function (card) {
     .querySelector("#elementTemlate")
     .content.cloneNode(true);
   const elementImage = newElement.querySelector(".element__image");
-  elementImage.setAttribute('src', card.link)
-  elementImage.setAttribute('alt', card.alt)
+  elementImage.setAttribute("src", card.link);
+  elementImage.setAttribute("alt", card.alt);
   const elementNamePlace = newElement.querySelector(".element__name-place");
   elementNamePlace.textContent = card.name;
 
