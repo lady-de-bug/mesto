@@ -44,24 +44,22 @@
         ></button>
       </section>
       <section class="elements" aria-label="Фотографии мест России.">
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/karachaevsk.jpg"
-            alt="Монастырь в Карачаевске."
-          />
-          <div class="element__mask-group">
-            <div class="element__choose-place">
-              <h2 class="element__name-place">Карачаевск</h2>
-              <button
-                class="element__place-like"
-                type="button"
-                aria-label="Кнопка нравится."
-              ></button>
-            </div>
-          </div>
-        </article>
-        <article class="element">
+        <template id="elementTemlate">
+          <article class="element">
+            <img class="element__image" />
+            <div class="element__mask-group">
+              <div class="element__choose-place">
+                <h2 class="element__name-place"></h2>
+                <button
+                  class="element__place-like"
+                  type="button"
+                  aria-label="Кнопка нравится."
+                ></button>
+              </div>
+            </div></article
+        ></template>
+
+        <!-- <article class="element">
           <img
             class="element__image"
             src="./images/elbrus.jpg"
@@ -145,7 +143,7 @@
               ></button>
             </div>
           </div>
-        </article>
+        </article> -->
       </section>
     </main>
     <footer class="footer">
@@ -185,6 +183,41 @@
           aria-label="Закрыть форму."
         ></button>
       </div>
+
+
+      <div class="popup-add-place">
+        <div class="popup-add-place__container">
+          <h2 class="popup-add-place__new-place">Новое место</h2>
+          <form name="place-form" class="popup-add-place__form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Название"
+              class="popup-add-place__input popup-add-place__input_type_name"
+              aria-label="Введите название места."
+            />
+            <input
+              type="text"
+              name="link"
+              placeholder="Ссылка на картинку"
+              class="popup-add-place__input popup-add-place__input_type_occupation"
+              aria-label="Укажите ссылку."
+            />
+            <button
+              class="popup-add-place__submit-btn"
+              type="submit"
+              aria-label="Отправка формы."
+            >
+            Создать
+            </button>
+          </form>
+
+          <button
+            class="popup-add-place__close-icon"
+            type="button"
+            aria-label="Закрыть форму."
+          ></button>
+        </div>
     </div>
   </body>
 </html>
