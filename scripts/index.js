@@ -52,9 +52,9 @@ const popupInputPlace = popupPlaceForm.querySelector(
   ".popup__input_type_place"
 );
 const popupInputLink = popupPlaceForm.querySelector(".popup__input_type_link");
-const elements = document.querySelector(".elements");
+const blockCards = document.querySelector(".elements");
 
-console.log(popupInputPlace);
+console.log(blockCards);
 
 function openPopup() {
   popup.classList.add("popup_opened");
@@ -89,24 +89,20 @@ popupPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 profileAddButton.addEventListener("click", openPlacePopup);
 placeCloseIcon.addEventListener("click", closePlacePopup);
 
-// Задание 1. При загрузке на странице должно быть 6 карточек, которые добавит JavaScript. Используется массив initialCards.
 
-function addCard(card) {
-  const newElement = elements
-    .querySelector("#elementTemplate")
-    .content.cloneNode(true);
+
+
+function createCard(place, link) {
+  const newElement = blockCards
+  .querySelector("#elementTemplate")
+  .content.cloneNode(true);
   const elementImage = newElement.querySelector(".element__image");
-  elementImage.setAttribute("src", card.link);
-  elementImage.setAttribute("alt", card.alt);
   const elementNamePlace = newElement.querySelector(".element__name-place");
-  elementNamePlace.textContent = card.name;
-  elements.append(newElement);
+  elementNamePlace.textContent = place;
+  elementImage.setAttribute("src", link);
+  elementImage.setAttribute("alt", place);
+  return newElement;
 }
-initialCards.forEach(addCard);
-
-/*  Задание 2 Сделайте так, чтобы при клике на «сохранить»
-  новая карточка попадала в начало контейнера с ними.
-  А диалоговое окно после добавления автоматически закрывалось. */
 
 function handlePlaceFormSubmit(event) {
   event.preventDefault();
@@ -116,14 +112,15 @@ function handlePlaceFormSubmit(event) {
     place: place,
     link: link,
   };
-  addCard(newCard);
-  elements.prepend(newCard);
+
+  blockCards.prepend(createCard(place, link));
   newItemPopup.classList.remove("popup_opened");
 }
-/* У меня на данном этапе две проблемы:
-1-не отображается название места в новой карточке
-2- не получается реализовать prepend для новой карточки.
-Я использую append в первой функции при загрузке 6 карточек
-При сабмите указываю prepend. Но когда
-передаю  функции addCard параметр newCard, у меня добавляется карточка в конец документа
-И в начале пустое поле( */
+initialCards.forEach(function (item) {
+  blockCards.append(createCard(item.name, item.link, item.alt));
+  console.log(item.name);
+  console.log(item.link);
+  console.log(item.alt);
+});
+
+
