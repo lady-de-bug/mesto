@@ -44,7 +44,7 @@
         ></button>
       </section>
       <section class="elements" aria-label="Фотографии мест России.">
-        <template id="elementTemlate">
+        <template id="elementTemplate">
           <article class="element">
             <img class="element__image" />
             <div class="element__mask-group">
@@ -188,7 +188,7 @@
     <div class="popup new-item-popup">
       <div class="popup__container">
         <h2 class="popup__edit-form">Новое место</h2>
-        <form name="place-form" class="popup__form">
+        <form name="place-form" class="popup__form popup-place-form">
           <input
             type="text"
             name="place"
@@ -204,7 +204,7 @@
             aria-label="Укажите ссылку."
           />
           <button
-            class="popup__submit-btn"
+            class="popup__submit-btn create-btn"
             type="submit"
             aria-label="Отправка формы."
           >
