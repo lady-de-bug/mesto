@@ -100,31 +100,29 @@ function createCard(place, link) {
   elementImage.setAttribute("src", link);
   elementImage.setAttribute("alt", place);
   const elementPlaceLike = newElement.querySelector(".element__place-like");
-  elementPlaceLike.addEventListener("click", function (event) {
-    const likeButton = event.target;
-    event.target.classList.toggle("element__place-like_active");
-    });
-    const elementTrashIcon = newElement.querySelector(".element__trash-icon");
-    elementTrashIcon.addEventListener("click", function (event) {
-
-      const deleteButton = event.target;
-      const targetCard = deleteButton.closest(".element");
-      targetCard.remove();
-  });
+  elementPlaceLike.addEventListener("click", handleLikeButtonClick);
+  const elementTrashIcon = newElement.querySelector(".element__trash-icon");
+  elementTrashIcon.addEventListener("click", handleDeleteButtonClick);
 
   return newElement;
+}
+function handleLikeButtonClick(event) {
+  const likeButton = event.target;
+  event.target.classList.toggle("element__place-like_active");
+}
+
+function handleDeleteButtonClick(event) {
+  const deleteButton = event.target;
+  const targetCard = deleteButton.closest(".element");
+  targetCard.remove();
 }
 
 function handlePlaceFormSubmit(event) {
   event.preventDefault();
   const placeName = popupInputPlace.value;
   const link = popupInputLink.value;
-  const newCard = {
-    placeName: placeName,
-    link: link,
-  };
-
   blockCards.prepend(createCard(placeName, link));
+
   newItemPopup.classList.remove("popup_opened");
   popupPlaceForm.reset();
 }
