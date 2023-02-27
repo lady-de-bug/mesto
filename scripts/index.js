@@ -54,7 +54,7 @@ const popupInputPlace = popupPlaceForm.querySelector(
 const popupInputLink = popupPlaceForm.querySelector(".popup__input_type_link");
 const blockCards = document.querySelector(".elements");
 
-console.log(blockCards);
+console.log();
 
 function openPopup() {
   popup.classList.add("popup_opened");
@@ -71,6 +71,7 @@ function openPlacePopup() {
 
 function closePlacePopup() {
   newItemPopup.classList.remove("popup_opened");
+  popupPlaceForm.reset();
 }
 
 function handleFormSubmit(event) {
@@ -89,38 +90,46 @@ popupPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 profileAddButton.addEventListener("click", openPlacePopup);
 placeCloseIcon.addEventListener("click", closePlacePopup);
 
-
-
-
 function createCard(place, link) {
   const newElement = blockCards
-  .querySelector("#elementTemplate")
-  .content.cloneNode(true);
+    .querySelector("#elementTemplate")
+    .content.cloneNode(true);
   const elementImage = newElement.querySelector(".element__image");
   const elementNamePlace = newElement.querySelector(".element__name-place");
   elementNamePlace.textContent = place;
   elementImage.setAttribute("src", link);
   elementImage.setAttribute("alt", place);
+  const elementPlaceLike = newElement.querySelector(".element__place-like");
+  elementPlaceLike.addEventListener("click", function (event) {
+    const likeButton = event.target;
+    event.target.classList.toggle("element__place-like_active");
+    });
+    const elementTrashIcon = newElement.querySelector(".element__trash-icon");
+    elementTrashIcon.addEventListener("click", function (event) {
+
+      const deleteButton = event.target;
+      const targetCard = deleteButton.closest(".element");
+      targetCard.remove();
+  });
+
   return newElement;
 }
 
 function handlePlaceFormSubmit(event) {
   event.preventDefault();
-  const place = popupInputPlace.value;
+  const placeName = popupInputPlace.value;
   const link = popupInputLink.value;
   const newCard = {
-    place: place,
+    placeName: placeName,
     link: link,
   };
 
-  blockCards.prepend(createCard(place, link));
+  blockCards.prepend(createCard(placeName, link));
   newItemPopup.classList.remove("popup_opened");
+  popupPlaceForm.reset();
 }
+
 initialCards.forEach(function (item) {
   blockCards.append(createCard(item.name, item.link, item.alt));
-  console.log(item.name);
-  console.log(item.link);
-  console.log(item.alt);
+  console.log(item.name, item.link, item.alt);
 });
-
-

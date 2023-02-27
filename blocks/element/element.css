@@ -1,4 +1,5 @@
 .element {
+  position: relative;
   background: #ffffff;
   border-radius: 10px;
 }
