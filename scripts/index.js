@@ -104,6 +104,9 @@ function createCard(place, link) {
   const elementTrashIcon = newElement.querySelector(".element__trash-icon");
   elementTrashIcon.addEventListener("click", handleDeleteButtonClick);
 
+
+
+
   return newElement;
 }
 function handleLikeButtonClick(event) {
