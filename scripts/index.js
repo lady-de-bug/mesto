@@ -53,8 +53,11 @@ const popupInputPlace = popupPlaceForm.querySelector(
 );
 const popupInputLink = popupPlaceForm.querySelector(".popup__input_type_link");
 const blockCards = document.querySelector(".elements");
-
-console.log();
+const popupImage = document.querySelector(".image-popup");
+const popupLargeImage = popupImage.querySelector(".popup__large-image");
+const popupImageCaption = popupImage.querySelector(".popup__image-caption");
+const imageCloseIcon = popupImage.querySelector(".image-close-icon");
+console.log(imageCloseIcon);
 
 function openPopup() {
   popup.classList.add("popup_opened");
@@ -74,6 +77,10 @@ function closePlacePopup() {
   popupPlaceForm.reset();
 }
 
+function closeImagePopup() {
+  popupImage.classList.remove("popup_opened");
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
   profileUserName.textContent = popupInputName.value;
@@ -89,6 +96,7 @@ popupPlaceForm.addEventListener("submit", handlePlaceFormSubmit);
 
 profileAddButton.addEventListener("click", openPlacePopup);
 placeCloseIcon.addEventListener("click", closePlacePopup);
+imageCloseIcon.addEventListener("click", closeImagePopup);
 
 function createCard(place, link) {
   const newElement = blockCards
@@ -104,11 +112,19 @@ function createCard(place, link) {
   const elementTrashIcon = newElement.querySelector(".element__trash-icon");
   elementTrashIcon.addEventListener("click", handleDeleteButtonClick);
 
-
-
-
+  elementImage.addEventListener("click", () =>
+    handleLargeImageClick(place, link)
+  );
   return newElement;
 }
+
+function handleLargeImageClick(place, link) {
+  popupLargeImage.src = link;
+  popupLargeImage.alt = place;
+  popupImageCaption.textContent = place;
+  popupImage.classList.add("popup_opened");
+}
+
 function handleLikeButtonClick(event) {
   const likeButton = event.target;
   event.target.classList.toggle("element__place-like_active");
@@ -132,5 +148,4 @@ function handlePlaceFormSubmit(event) {
 
 initialCards.forEach(function (item) {
   blockCards.append(createCard(item.name, item.link, item.alt));
-  console.log(item.name, item.link, item.alt);
 });
