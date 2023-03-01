@@ -32,8 +32,8 @@ const initialCards = [
 ];
 const profile = document.querySelector('.profile');
 const editProfileButton = profile.querySelector('.profile__edit-button');
-const popupProfile = document.querySelector('.popup');
-const popupСloseIcon = popupProfile.querySelector('.popup__close-icon');
+const popupProfile = document.querySelector('.popup_type_profile');
+const popupСloseIcon = popupProfile.querySelector('.popup__close-icon_type_profile');
 const popupInputName = popupProfile.querySelector('.popup__input_type_name');
 const popupInputOccupation = popupProfile.querySelector(
   '.popup__input_type_occupation'
@@ -42,22 +42,22 @@ const profileUserName = profile.querySelector('.profile__user-name');
 const profileUserOccupation = profile.querySelector(
   '.profile__user-occupation'
 );
-const popupForm = popupProfile.querySelector('.popup__form');
+const popupForm = popupProfile.querySelector('.popup__form_type_profile');
 
 const profileAddButton = profile.querySelector('.profile__add-button');
-const newItemPopup = document.querySelector('.new-item-popup');
-const placeCloseIcon = newItemPopup.querySelector('.place-close-icon');
-const popupPlaceForm = newItemPopup.querySelector('.popup-place-form');
+const newItemPopup = document.querySelector('.popup_type_place');
+const placeCloseIcon = newItemPopup.querySelector('.popup__close-icon_type_place');
+const popupPlaceForm = newItemPopup.querySelector('.popup__form_type_place');
 const popupInputPlace = popupPlaceForm.querySelector(
   '.popup__input_type_place'
 );
 const popupInputLink = popupPlaceForm.querySelector('.popup__input_type_link');
 const blockCards = document.querySelector('.elements');
-const popupImage = document.querySelector('.image-popup');
+const popupImage = document.querySelector('.popup_type_image');
 const popupLargeImage = popupImage.querySelector('.popup__large-image');
 const popupImageCaption = popupImage.querySelector('.popup__image-caption');
-const imageCloseIcon = popupImage.querySelector('.image-close-icon');
-console.log(imageCloseIcon);
+const imageCloseIcon = popupImage.querySelector('.popup__close-icon_type_image');
+
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');

@@ -8,31 +8,8 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   visibility: hidden;
-  /* display: none; */
-}
-
-.popup__container-image {
-  position: relative;
-}
-
-.popup__image {
+  opacity: 0;
+  transition: 1s;
+  transition-delay: 0.2s;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-.popup__large-image {
-  object-fit: contain;
-  max-width: 75vw;
-  max-height: 75vh;
-}
-.popup__image-caption {
-  align-self: flex-start;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
 }

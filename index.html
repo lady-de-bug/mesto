@@ -155,10 +155,10 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_type_profile">
       <div class="popup__container">
         <h2 class="popup__edit-form">Редактировать профиль</h2>
-        <form name="profile-form" class="popup__form">
+        <form name="profile-form" class="popup__form popup__form_type_profile">
           <input
             type="text"
             name="name"
@@ -183,17 +183,17 @@
         </form>
 
         <button
-          class="popup__close-icon"
+          class="popup__close-icon popup__close-icon_type_profile"
           type="button"
           aria-label="Закрыть форму."
         ></button>
       </div>
     </div>
 
-    <div class="popup new-item-popup">
+    <div class="popup popup_type_place">
       <div class="popup__container">
         <h2 class="popup__edit-form">Новое место</h2>
-        <form name="place-form" class="popup__form popup-place-form">
+        <form name="place-form" class="popup__form popup__form_type_place">
           <input
             type="text"
             name="place"
@@ -209,7 +209,7 @@
             aria-label="Укажите ссылку."
           />
           <button
-            class="popup__submit-btn create-btn"
+            class="popup__submit-btn"
             type="submit"
             aria-label="Отправка формы."
           >
@@ -218,22 +218,24 @@
         </form>
 
         <button
-          class="popup__close-icon place-close-icon"
+          class="popup__close-icon popup__close-icon_type_place"
           type="button"
           aria-label="Закрыть форму."
         ></button>
       </div>
     </div>
 
-    <div class="popup image-popup">
+    <div class="popup popup_type_image">
       <div class="popup__container-image">
+
+
         <figure class="popup__image">
-          <img class="popup__large-image" src="" alt="" />
+          <img class="popup__large-image" />
           <figcaption class="popup__image-caption"></figcaption>
         </figure>
 
         <button
-          class="popup__close-icon image-close-icon"
+          class="popup__close-icon popup__close-icon_type_image"
           type="button"
           aria-label="Закрыть форму."
         ></button>
