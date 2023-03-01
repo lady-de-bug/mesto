@@ -1,6 +1,7 @@
 .main {
   box-sizing: border-box;
   max-width: 918px;
+  min-height: 950px;
   margin: 0 auto;
   padding: 40px 19px 0px;
 }
