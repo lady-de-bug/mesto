@@ -33,7 +33,9 @@ const initialCards = [
 const profile = document.querySelector('.profile');
 const editProfileButton = profile.querySelector('.profile__edit-button');
 const popupProfile = document.querySelector('.popup_type_profile');
-const popupСloseIcon = popupProfile.querySelector('.popup__close-icon_type_profile');
+const popupСloseIcon = popupProfile.querySelector(
+  '.popup__close-icon_type_profile'
+);
 const popupInputName = popupProfile.querySelector('.popup__input_type_name');
 const popupInputOccupation = popupProfile.querySelector(
   '.popup__input_type_occupation'
@@ -46,7 +48,9 @@ const popupForm = popupProfile.querySelector('.popup__form_type_profile');
 
 const profileAddButton = profile.querySelector('.profile__add-button');
 const newItemPopup = document.querySelector('.popup_type_place');
-const placeCloseIcon = newItemPopup.querySelector('.popup__close-icon_type_place');
+const placeCloseIcon = newItemPopup.querySelector(
+  '.popup__close-icon_type_place'
+);
 const popupPlaceForm = newItemPopup.querySelector('.popup__form_type_place');
 const popupInputPlace = popupPlaceForm.querySelector(
   '.popup__input_type_place'
@@ -56,8 +60,9 @@ const blockCards = document.querySelector('.elements');
 const popupImage = document.querySelector('.popup_type_image');
 const popupLargeImage = popupImage.querySelector('.popup__large-image');
 const popupImageCaption = popupImage.querySelector('.popup__image-caption');
-const imageCloseIcon = popupImage.querySelector('.popup__close-icon_type_image');
-
+const imageCloseIcon = popupImage.querySelector(
+  '.popup__close-icon_type_image'
+);
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -75,36 +80,16 @@ function openProfilePopup() {
 function closeProfilePopup() {
   closePopup(popupProfile);
 }
-
 function openPlacePopup() {
   openPopup(newItemPopup);
 }
-
 function closePlacePopup() {
   closePopup(newItemPopup);
   popupPlaceForm.reset();
 }
-
 function closeImagePopup() {
   closePopup(popupImage);
 }
-
-// function handleProfileFormSubmit(event) {
-//   event.preventDefault();
-//   profileUserName.textContent = popupInputName.value;
-//   profileUserOccupation.textContent = popupInputOccupation.value;
-//   closePopup(popupProfile);
-// }
-
-// editProfileButton.addEventListener('click', openProfilePopup);
-// popupСloseIcon.addEventListener('click', closeProfilePopup);
-// popupForm.addEventListener('submit', handleProfileFormSubmit);
-
-// popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-
-// profileAddButton.addEventListener('click', openPlacePopup);
-// placeCloseIcon.addEventListener('click', closePlacePopup);
-// imageCloseIcon.addEventListener('click', closeImagePopup);
 
 function createCard(place, link) {
   const newElement = blockCards
@@ -135,25 +120,21 @@ function handleProfileFormSubmit(event) {
   profileUserOccupation.textContent = popupInputOccupation.value;
   closePopup(popupProfile);
 }
-
 function handleLargeImageClick(place, link) {
   popupLargeImage.src = link;
   popupLargeImage.alt = place;
   popupImageCaption.textContent = place;
   openPopup(popupImage);
 }
-
 function handleLikeButtonClick(event) {
   const likeButton = event.target;
   event.target.classList.toggle('element__place-like_active');
 }
-
 function handleDeleteButtonClick(event) {
   const deleteButton = event.target;
   const targetCard = deleteButton.closest('.element');
   targetCard.remove();
 }
-
 function handlePlaceFormSubmit(event) {
   event.preventDefault();
   const placeName = popupInputPlace.value;
@@ -163,16 +144,10 @@ function handlePlaceFormSubmit(event) {
   popupPlaceForm.reset();
 }
 
-// initialCards.forEach(function (item) {
-//   blockCards.append(createCard(item.name, item.link, item.alt));
-// });
-
 editProfileButton.addEventListener('click', openProfilePopup);
 popupСloseIcon.addEventListener('click', closeProfilePopup);
 popupForm.addEventListener('submit', handleProfileFormSubmit);
-
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-
 profileAddButton.addEventListener('click', openPlacePopup);
 placeCloseIcon.addEventListener('click', closePlacePopup);
 imageCloseIcon.addEventListener('click', closeImagePopup);
