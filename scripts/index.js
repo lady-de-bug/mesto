@@ -32,35 +32,35 @@ const initialCards = [
 ];
 const profile = document.querySelector('.profile');
 const editProfileButton = profile.querySelector('.profile__edit-button');
-const popupProfile = document.querySelector('.popup_type_profile');
-const popupСloseIcon = popupProfile.querySelector(
+const profilePopup = document.querySelector('.popup_type_profile');
+const profileСloseButton = profilePopup.querySelector(
   '.popup__close-icon_type_profile'
 );
-const popupInputName = popupProfile.querySelector('.popup__input_type_name');
-const popupInputOccupation = popupProfile.querySelector(
+const popupInputName = profilePopup.querySelector('.popup__input_type_name');
+const popupInputOccupation = profilePopup.querySelector(
   '.popup__input_type_occupation'
 );
 const profileUserName = profile.querySelector('.profile__user-name');
 const profileUserOccupation = profile.querySelector(
   '.profile__user-occupation'
 );
-const popupForm = popupProfile.querySelector('.popup__form_type_profile');
+const profileForm = profilePopup.querySelector('.popup__form_type_profile');
 
 const profileAddButton = profile.querySelector('.profile__add-button');
-const newItemPopup = document.querySelector('.popup_type_place');
-const placeCloseIcon = newItemPopup.querySelector(
+const placePopup = document.querySelector('.popup_type_place');
+const placeCloseButton = placePopup.querySelector(
   '.popup__close-icon_type_place'
 );
-const popupPlaceForm = newItemPopup.querySelector('.popup__form_type_place');
+const popupPlaceForm = placePopup.querySelector('.popup__form_type_place');
 const popupInputPlace = popupPlaceForm.querySelector(
   '.popup__input_type_place'
 );
 const popupInputLink = popupPlaceForm.querySelector('.popup__input_type_link');
 const blockCards = document.querySelector('.elements');
-const popupImage = document.querySelector('.popup_type_image');
-const popupLargeImage = popupImage.querySelector('.popup__large-image');
-const popupImageCaption = popupImage.querySelector('.popup__image-caption');
-const imageCloseIcon = popupImage.querySelector(
+const imagePopup = document.querySelector('.popup_type_image');
+const popupLargeImage = imagePopup.querySelector('.popup__large-image');
+const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
+const imageCloseButton = imagePopup.querySelector(
   '.popup__close-icon_type_image'
 );
 
@@ -72,23 +72,23 @@ function closePopup(popup) {
 }
 
 function openProfilePopup() {
-  openPopup(popupProfile);
+  openPopup(profilePopup);
   popupInputName.value = profileUserName.textContent;
   popupInputOccupation.value = profileUserOccupation.textContent;
 }
 
 function closeProfilePopup() {
-  closePopup(popupProfile);
+  closePopup(profilePopup);
 }
 function openPlacePopup() {
-  openPopup(newItemPopup);
+  openPopup(placePopup);
 }
 function closePlacePopup() {
-  closePopup(newItemPopup);
+  closePopup(placePopup);
   popupPlaceForm.reset();
 }
 function closeImagePopup() {
-  closePopup(popupImage);
+  closePopup(imagePopup);
 }
 
 function createCard(place, link) {
@@ -118,16 +118,15 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profileUserName.textContent = popupInputName.value;
   profileUserOccupation.textContent = popupInputOccupation.value;
-  closePopup(popupProfile);
+  closePopup(profilePopup);
 }
 function handleLargeImageClick(place, link) {
   popupLargeImage.src = link;
   popupLargeImage.alt = place;
   popupImageCaption.textContent = place;
-  openPopup(popupImage);
+  openPopup(imagePopup);
 }
 function handleLikeButtonClick(event) {
-  const likeButton = event.target;
   event.target.classList.toggle('element__place-like_active');
 }
 function handleDeleteButtonClick(event) {
@@ -140,14 +139,14 @@ function handlePlaceFormSubmit(event) {
   const placeName = popupInputPlace.value;
   const link = popupInputLink.value;
   blockCards.prepend(createCard(placeName, link));
-  closePopup(newItemPopup);
+  closePopup(placePopup);
   popupPlaceForm.reset();
 }
 
 editProfileButton.addEventListener('click', openProfilePopup);
-popupСloseIcon.addEventListener('click', closeProfilePopup);
-popupForm.addEventListener('submit', handleProfileFormSubmit);
+profileСloseButton.addEventListener('click', closeProfilePopup);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
 profileAddButton.addEventListener('click', openPlacePopup);
-placeCloseIcon.addEventListener('click', closePlacePopup);
-imageCloseIcon.addEventListener('click', closeImagePopup);
+placeCloseButton.addEventListener('click', closePlacePopup);
+imageCloseButton.addEventListener('click', closeImagePopup);
