@@ -64,6 +64,8 @@ const imageCloseButton = imagePopup.querySelector(
   '.popup__close-icon_type_image'
 );
 
+
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
@@ -108,7 +110,7 @@ function createCard(place, link) {
     handleLargeImageClick(place, link)
   );
   return newElement;
-}
+};
 
 initialCards.forEach(function (item) {
   blockCards.append(createCard(item.name, item.link, item.alt));
