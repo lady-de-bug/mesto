@@ -7,7 +7,7 @@
   margin-bottom: 30px;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  position: relative;
+  /* position: relative; */
 }
 
 .popup__input:last-of-type {
@@ -20,19 +20,20 @@
   outline-color: #86b7fe;
 }
 .popup__input_type_error {
+
   border-bottom: 1px solid #ff0000;
 }
 
 .popup__input-error {
-  /* display: block; */
-  top: 31px;
+  
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   color: #FF0000;
-  position: absolute;
+  opacity: 0;
 
 }
 .popup__input-error_visible {
 
+  opacity: 1;
 }

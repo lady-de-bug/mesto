@@ -63,12 +63,11 @@ const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
 const imageCloseButton = imagePopup.querySelector(
   '.popup__close-icon_type_image'
 );
-
-
+const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-}
+  }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
@@ -77,12 +76,12 @@ function openProfilePopup() {
   openPopup(profilePopup);
   popupInputName.value = profileUserName.textContent;
   popupInputOccupation.value = profileUserOccupation.textContent;
-}
+  }
 
 function closeProfilePopup() {
   closePopup(profilePopup);
 }
-function openPlacePopup() {
+function openPlacePopup(placePopup) {
   openPopup(placePopup);
 }
 function closePlacePopup() {
@@ -110,7 +109,7 @@ function createCard(place, link) {
     handleLargeImageClick(place, link)
   );
   return newElement;
-};
+}
 
 initialCards.forEach(function (item) {
   blockCards.append(createCard(item.name, item.link, item.alt));
@@ -145,10 +144,20 @@ function handlePlaceFormSubmit(event) {
   popupPlaceForm.reset();
 }
 
+function preventSubmit(submitFormButton, config) {
+  submitFormButton.classList.add(config.inactiveButtonClass);
+  submitFormButton.disabled = true;
+}
+
 editProfileButton.addEventListener('click', openProfilePopup);
 profileСloseButton.addEventListener('click', closeProfilePopup);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-profileAddButton.addEventListener('click', openPlacePopup);
+
+profileAddButton.addEventListener('click', (evt) => {
+  openPlacePopup(placePopup);
+  preventSubmit(submitFormButton, validationConfig);
+});
+
 placeCloseButton.addEventListener('click', closePlacePopup);
 imageCloseButton.addEventListener('click', closeImagePopup);
