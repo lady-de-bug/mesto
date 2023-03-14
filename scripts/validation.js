@@ -50,8 +50,7 @@ const checkInputValidity = (
 };
 
 const hasInvalidInput = (inputList) => {
-  // console.log(inputList);
-  return inputList.some((input) => !input.validity.valid);
+    return inputList.some((input) => !input.validity.valid);
 };
 
 const toggleButtonState = (submitButton, inactiveButtonClass, inputList) => {
@@ -99,13 +98,4 @@ const enableValidation = (config) => {
   );
 };
 
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  errorClassTemplate: '.popup__input-error_type_',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_visible',
-  submitButtonSelector: '.popup__submit-btn',
-  inactiveButtonClass: 'popup__submit-btn_disabled',
-};
 enableValidation(validationConfig);

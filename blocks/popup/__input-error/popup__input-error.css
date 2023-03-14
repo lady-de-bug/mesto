@@ -3,9 +3,9 @@
   box-sizing: border-box;
   font-weight: 400;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 1;
   color: #ff0000;
   visibility: hidden;
-  padding: 0px;
+  padding-top: 6px;
   min-height: 30px;
 }
