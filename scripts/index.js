@@ -6,7 +6,7 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupByEsc);
-  document.removeEventListener('keydown', closePopupByOverlay);
+  document.removeEventListener('click', closePopupByOverlay);
 }
 
 function openProfilePopup() {
@@ -39,8 +39,7 @@ function closePopupByEsc(evt) {
 
 function closePopupByOverlay(evt) {
   if (evt.target.classList.contains('popup_opened')) {
-    const popupClosedByOverlay = document.querySelector('.popup_opened');
-    closePopup(popupClosedByOverlay);
+        closePopup(evt.target);
   }
 }
 
@@ -63,6 +62,11 @@ function createCard(place, link) {
 
 initialCards.forEach(function (item) {
   blockCards.append(createCard(item.name, item.link, item.alt));
+});
+
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
 
 function handleProfileFormSubmit(event) {
@@ -94,20 +98,16 @@ function handlePlaceFormSubmit(event) {
   popupPlaceForm.reset();
 }
 
-function preventSubmit(submitFormButton, config) {
+function disableSubmitButton(submitFormButton, config) {
   submitFormButton.classList.add(config.inactiveButtonClass);
   submitFormButton.disabled = true;
 }
-
 editProfileButton.addEventListener('click', openProfilePopup);
-profileСloseButton.addEventListener('click', closeProfilePopup);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-
 profileAddButton.addEventListener('click', (evt) => {
   openPlacePopup(placePopup);
-  preventSubmit(submitFormButton, validationConfig);
+  disableSubmitButton(submitFormButton, validationConfig);
 });
 
-placeCloseButton.addEventListener('click', closePlacePopup);
-imageCloseButton.addEventListener('click', closeImagePopup);
+
