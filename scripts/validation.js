@@ -50,7 +50,7 @@ const checkInputValidity = (
 };
 
 const hasInvalidInput = (inputList) => {
-    return inputList.some((input) => !input.validity.valid);
+  return inputList.some((input) => !input.validity.valid);
 };
 
 const toggleButtonState = (submitButton, inactiveButtonClass, inputList) => {
@@ -99,3 +99,20 @@ const enableValidation = (config) => {
 };
 
 enableValidation(validationConfig);
+
+function hideFormErrors(form, config) {
+  const inputList = Array.from(
+    form.querySelectorAll(`.popup__input_type_error`)
+  );
+  inputList.forEach((input) => {
+    const errorElement = document.querySelector(
+      `.popup__input-error_type_${input.name}`
+    );
+    hideInputError(
+      input,
+      errorElement,
+      config.inputErrorClass,
+      config.errorClass
+    );
+  });
+}

@@ -13,22 +13,26 @@ function openProfilePopup() {
   openPopup(profilePopup);
   popupInputName.value = profileUserName.textContent;
   popupInputOccupation.value = profileUserOccupation.textContent;
+  hideFormErrors(profileForm, validationConfig);
 }
 
-function closeProfilePopup() {
-  closePopup(profilePopup);
-}
-function openPlacePopup(placePopup) {
+// function closeProfilePopup() {
+//   closePopup(profilePopup);
+// }
+
+function openPlacePopup() {
   openPopup(placePopup);
-}
-function closePlacePopup() {
-  closePopup(placePopup);
   popupPlaceForm.reset();
+  disableSubmitButton(submitFormButton, validationConfig);
+  hideFormErrors(popupPlaceForm, validationConfig);
 }
-function closeImagePopup() {
-  closePopup(imagePopup);
-}
-
+// function closePlacePopup() {
+//   closePopup(placePopup);
+//   popupPlaceForm.reset();
+// }
+// function closeImagePopup() {
+//   closePopup(imagePopup);
+// }
 
 function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {
@@ -39,7 +43,7 @@ function closePopupByEsc(evt) {
 
 function closePopupByOverlay(evt) {
   if (evt.target.classList.contains('popup_opened')) {
-        closePopup(evt.target);
+    closePopup(evt.target);
   }
 }
 
@@ -98,16 +102,12 @@ function handlePlaceFormSubmit(event) {
   popupPlaceForm.reset();
 }
 
-function disableSubmitButton(submitFormButton, config) {
-  submitFormButton.classList.add(config.inactiveButtonClass);
-  submitFormButton.disabled = true;
+function disableSubmitButton(submitButton, config) {
+  submitButton.classList.add(config.inactiveButtonClass);
+  submitButton.disabled = true;
 }
 editProfileButton.addEventListener('click', openProfilePopup);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-profileAddButton.addEventListener('click', (evt) => {
-  openPlacePopup(placePopup);
-  disableSubmitButton(submitFormButton, validationConfig);
-});
-
+profileAddButton.addEventListener('click', openPlacePopup);
 
