@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css" />
-   <script src="./scripts/consts.js" defer></script>
-    <script src="./scripts/validation.js" defer></script>
-    <script src="./scripts/index.js" defer></script>
+    <script type="module" src="./scripts/consts.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
   </head>
   <body class="page">
     <header class="header">
@@ -89,9 +90,7 @@
             minlength="2"
             maxlength="40"
           />
-          <span class="popup__input-error popup__input-error_type_name"
-            ></span
-          >
+          <span class="popup__input-error popup__input-error_type_name"></span>
           <input
             type="text"
             name="occupation"
