@@ -1,4 +1,4 @@
-const validationConfig = {
+export const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   errorClassTemplate: '.popup__input-error_type_',
@@ -9,7 +9,7 @@ const validationConfig = {
 };
 
 // costs from index.js
-const initialCards = [
+export const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
@@ -41,29 +41,29 @@ const initialCards = [
     alt: 'Волны озера омывают скалистый берег.',
   },
 ];
-const profile = document.querySelector('.profile');
-const editProfileButton = profile.querySelector('.profile__edit-button');
-const profilePopup = document.querySelector('.popup_type_profile');
-const popupInputName = profilePopup.querySelector('.popup__input_type_name');
-const popupInputOccupation = profilePopup.querySelector(
-  '.popup__input_type_occupation'
-);
-const profileUserName = profile.querySelector('.profile__user-name');
-const profileUserOccupation = profile.querySelector(
-  '.profile__user-occupation'
-);
-const profileForm = profilePopup.querySelector('.popup__form_type_profile');
-const profileAddButton = profile.querySelector('.profile__add-button');
-const placePopup = document.querySelector('.popup_type_place');
-const popupPlaceForm = placePopup.querySelector('.popup__form_type_place');
-const popupInputPlace = popupPlaceForm.querySelector(
-  '.popup__input_type_place'
-);
-const popupInputLink = popupPlaceForm.querySelector('.popup__input_type_link');
-const blockCards = document.querySelector('.elements');
-const imagePopup = document.querySelector('.popup_type_image');
-const popupLargeImage = imagePopup.querySelector('.popup__large-image');
-const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
-const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
-const elementTemplate = blockCards.querySelector('#elementTemplate');
-const closeButtons = document.querySelectorAll('.popup__close-icon');
+// const profile = document.querySelector('.profile');
+// const editProfileButton = profile.querySelector('.profile__edit-button');
+// const profilePopup = document.querySelector('.popup_type_profile');
+// const popupInputName = profilePopup.querySelector('.popup__input_type_name');
+// const popupInputOccupation = profilePopup.querySelector(
+//   '.popup__input_type_occupation'
+// );
+// const profileUserName = profile.querySelector('.profile__user-name');
+// const profileUserOccupation = profile.querySelector(
+//   '.profile__user-occupation'
+// );
+// const profileForm = profilePopup.querySelector('.popup__form_type_profile');
+// const profileAddButton = profile.querySelector('.profile__add-button');
+// const placePopup = document.querySelector('.popup_type_place');
+// const popupPlaceForm = placePopup.querySelector('.popup__form_type_place');
+// const popupInputPlace = popupPlaceForm.querySelector(
+//   '.popup__input_type_place'
+// );
+// const popupInputLink = popupPlaceForm.querySelector('.popup__input_type_link');
+// const blockCards = document.querySelector('.elements');
+// const imagePopup = document.querySelector('.popup_type_image');
+// const popupLargeImage = imagePopup.querySelector('.popup__large-image');
+// const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
+// const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
+// const elementTemplate = blockCards.querySelector('#elementTemplate');
+// const closeButtons = document.querySelectorAll('.popup__close-icon');
