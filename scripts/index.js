@@ -25,7 +25,7 @@ const blockCards = document.querySelector('.elements');
 const imagePopup = document.querySelector('.popup_type_image');
 const popupLargeImage = imagePopup.querySelector('.popup__large-image');
 const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
-const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
+// const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
 const closeButtons = document.querySelectorAll('.popup__close-icon');
 
 function openPopup(popup) {
@@ -50,7 +50,7 @@ function openProfilePopup() {
 function openPlacePopup() {
   openPopup(placePopup);
   popupPlaceForm.reset();
-  disableSubmitButton(submitFormButton, validationConfig);
+  placeFormValidation.disableButton();
   placeFormValidation.hideFormErrors();
 }
 
@@ -103,10 +103,6 @@ function handlePlaceFormSubmit(event) {
   popupPlaceForm.reset();
 }
 
-function disableSubmitButton(submitButton, config) {
-  submitButton.classList.add(config.inactiveButtonClass);
-  submitButton.disabled = true;
-}
 editProfileButton.addEventListener('click', openProfilePopup);
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
