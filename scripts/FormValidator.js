@@ -34,7 +34,7 @@ export default class FormValidator {
   };
 
   _enableButton = () => {
-    this._submitButton.classList.remove(inactiveButtonClass);
+    this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
   };
 
@@ -75,4 +75,28 @@ export default class FormValidator {
   enableValidation() {
     this._setEventListeners();
   }
+
+  hideFormErrors() {
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
+      this._toggleButtonState();
+    });
+  }
 }
+
+// function hideFormErrors(form, config) {
+//   const inputList = Array.from(
+//     form.querySelectorAll(`.popup__input_type_error`)
+//   );
+//   inputList.forEach((input) => {
+//     const errorElement = document.querySelector(
+//       `.popup__input-error_type_${input.name}`
+//     );
+//     hideInputError(
+//       input,
+//       errorElement,
+//       config.inputErrorClass,
+//       config.errorClass
+//     );
+//   });
+// }
