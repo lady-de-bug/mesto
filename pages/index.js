@@ -1,6 +1,7 @@
 import { initialCards, validationConfig } from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
 
 const profile = document.querySelector('.profile');
 const editProfileButton = profile.querySelector('.profile__edit-button');
@@ -72,9 +73,22 @@ function createCard(data) {
   return card.generateCard();
 }
 
-initialCards.forEach((item) => {
-  blockCards.append(createCard(item));
-});
+const cardsList = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, '#elementTemplate', handleLargeImageClick);
+      const cardElement = card.generateCard();
+      cardsList.addItem(cardElement);
+    },
+  },
+  '.elements'
+);
+cardsList.renderItems();
+
+// initialCards.forEach((item) => {
+//   blockCards.append(createCard(item));
+// });
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
