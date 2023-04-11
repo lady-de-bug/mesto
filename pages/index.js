@@ -1,6 +1,6 @@
-import { initialCards, validationConfig } from './consts.js';
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+import { initialCards, validationConfig } from '../utils/constants.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
 
 const profile = document.querySelector('.profile');
 const editProfileButton = profile.querySelector('.profile__edit-button');
