@@ -1,75 +1,67 @@
-import { initialCards, validationConfig } from '../utils/constants.js';
+import {
+  initialCards,
+  validationConfig,
+  popupPlaceForm,
+  newPlacePopupAddButton,
+  profileForm,
+  editProfileButton,
+  popupInputName,
+  popupInputOccupation,
+} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
-const profile = document.querySelector('.profile');
-const editProfileButton = profile.querySelector('.profile__edit-button');
-const profilePopup = document.querySelector('.popup_type_profile');
-const popupInputName = profilePopup.querySelector('.popup__input_type_name');
-const popupInputOccupation = profilePopup.querySelector(
-  '.popup__input_type_occupation'
-);
-const profileUserName = profile.querySelector('.profile__user-name');
-const profileUserOccupation = profile.querySelector(
-  '.profile__user-occupation'
-);
-const profileForm = profilePopup.querySelector('.popup__form_type_profile');
-const profileAddButton = profile.querySelector('.profile__add-button');
-const placePopup = document.querySelector('.popup_type_place');
-const popupPlaceForm = placePopup.querySelector('.popup__form_type_place');
-const popupInputPlace = popupPlaceForm.querySelector(
-  '.popup__input_type_place'
-);
-const popupInputLink = popupPlaceForm.querySelector('.popup__input_type_link');
-const blockCards = document.querySelector('.elements');
-const imagePopup = document.querySelector('.popup_type_image');
-const popupLargeImage = imagePopup.querySelector('.popup__large-image');
-const popupImageCaption = imagePopup.querySelector('.popup__image-caption');
-// const submitFormButton = popupPlaceForm.querySelector('.popup__submit-btn');
-const closeButtons = document.querySelectorAll('.popup__close-icon');
+const openImagePopup = new PopupWithImage('.popup_type_image');
+openImagePopup.setEventListeners();
 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupByEsc);
-  document.addEventListener('click', closePopupByOverlay);
-}
+const userInfo = new UserInfo({
+  name: '.profile__user-name',
+  occupation: '.profile__user-occupation',
+});
+const editProfilePopup = new PopupWithForm({
+  popupSelector: '.popup_type_profile',
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo({
+      name: data.name,
+      occupation: data.occupation,
+    });
+    editProfilePopup.close();
+  },
+});
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupByEsc);
-  document.removeEventListener('click', closePopupByOverlay);
-}
+editProfilePopup.setEventListeners();
 
-function openProfilePopup() {
-  openPopup(profilePopup);
-  popupInputName.value = profileUserName.textContent;
-  popupInputOccupation.value = profileUserOccupation.textContent;
+editProfileButton.addEventListener('click', () => {
+  editProfilePopup.open();
+  const user = userInfo.getUserInfo();
+  popupInputName.value = user.name;
+  popupInputOccupation.value = user.occupation;
   profileFormValidation.hideFormErrors();
-}
+});
 
-function openPlacePopup() {
-  openPopup(placePopup);
-  popupPlaceForm.reset();
+const newPlacePopup = new PopupWithForm({
+  popupSelector: '.popup_type_place',
+  handleFormSubmit: (formData) => {
+    const cardElement = createCard(formData);
+    cardsList.addItem(cardElement);
+  },
+});
+newPlacePopup.setEventListeners();
+
+newPlacePopupAddButton.addEventListener('click', () => {
+  newPlacePopup.open();
   placeFormValidation.disableButton();
   placeFormValidation.hideFormErrors();
-}
-
-function closePopupByEsc(evt) {
-  if (evt.key === 'Escape') {
-    const popupClosedByEsc = document.querySelector('.popup_opened');
-    closePopup(popupClosedByEsc);
-  }
-}
-
-function closePopupByOverlay(evt) {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  }
-}
+});
 
 function createCard(data) {
-  const card = new Card(data, '#elementTemplate', handleLargeImageClick);
+  const card = new Card(data, '#elementTemplate', (name, link) => {
+    openImagePopup.open(name, link);
+  });
   return card.generateCard();
 }
 
@@ -77,51 +69,13 @@ const cardsList = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(item, '#elementTemplate', handleLargeImageClick);
-      const cardElement = card.generateCard();
+      const cardElement = createCard(item);
       cardsList.addItem(cardElement);
     },
   },
   '.elements'
 );
 cardsList.renderItems();
-
-// initialCards.forEach((item) => {
-//   blockCards.append(createCard(item));
-// });
-
-closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
-
-function handleProfileFormSubmit(event) {
-  event.preventDefault();
-  profileUserName.textContent = popupInputName.value;
-  profileUserOccupation.textContent = popupInputOccupation.value;
-  closePopup(profilePopup);
-}
-function handleLargeImageClick(place, link) {
-  popupLargeImage.src = link;
-  popupLargeImage.alt = place;
-  popupImageCaption.textContent = place;
-  openPopup(imagePopup);
-}
-
-function handlePlaceFormSubmit(event) {
-  event.preventDefault();
-  const name = popupInputPlace.value;
-  const link = popupInputLink.value;
-  blockCards.prepend(createCard({ name, link }));
-  closePopup(placePopup);
-  popupPlaceForm.reset();
-}
-
-editProfileButton.addEventListener('click', openProfilePopup);
-profileForm.addEventListener('submit', handleProfileFormSubmit);
-popupPlaceForm.addEventListener('submit', handlePlaceFormSubmit);
-profileAddButton.addEventListener('click', openPlacePopup);
-
 const profileFormValidation = new FormValidator(validationConfig, profileForm);
 profileFormValidation.enableValidation();
 const placeFormValidation = new FormValidator(validationConfig, popupPlaceForm);
