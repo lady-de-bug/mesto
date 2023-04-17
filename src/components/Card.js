@@ -1,9 +1,9 @@
 export default class Card {
-  constructor(data, elementTemplateSelector, onImageClick) {
+  constructor(data, elementTemplateSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._elementTemplateSelector = elementTemplateSelector;
-    this._onImageClick = onImageClick;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -40,7 +40,7 @@ export default class Card {
       this._handleDeleteButtonClick()
     );
     this._elementImage.addEventListener('click', () =>
-      this._onImageClick(this._name, this._link)
+      this._handleCardClick(this._name, this._link)
     );
   }
 

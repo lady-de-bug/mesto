@@ -8,7 +8,6 @@ export const validationConfig = {
   inactiveButtonClass: 'popup__submit-btn_disabled',
 };
 
-// costs from index.js
 export const initialCards = [
   {
     name: 'Архыз',
@@ -44,12 +43,19 @@ export const initialCards = [
 const profile = document.querySelector('.profile');
 export const editProfileButton = profile.querySelector('.profile__edit-button');
 export const placePopup = document.querySelector('.popup_type_place');
-export const popupPlaceForm = placePopup.querySelector('.popup__form_type_place');
+export const popupPlaceForm = placePopup.querySelector(
+  '.popup__form_type_place'
+);
 const profilePopup = document.querySelector('.popup_type_profile');
-export const profileForm = profilePopup.querySelector('.popup__form_type_profile');
-export const newPlacePopupAddButton = profile.querySelector('.profile__add-button');
-export const popupInputName = profilePopup.querySelector('.popup__input_type_name');
+export const profileForm = profilePopup.querySelector(
+  '.popup__form_type_profile'
+);
+export const newPlacePopupAddButton = profile.querySelector(
+  '.profile__add-button'
+);
+export const popupInputName = profilePopup.querySelector(
+  '.popup__input_type_name'
+);
 export const popupInputOccupation = profilePopup.querySelector(
   '.popup__input_type_occupation'
 );
-

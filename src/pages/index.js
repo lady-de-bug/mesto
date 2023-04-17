@@ -1,3 +1,4 @@
+import './index.css';
 import {
   initialCards,
   validationConfig,
@@ -15,20 +16,19 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 
-const openImagePopup = new PopupWithImage('.popup_type_image');
-openImagePopup.setEventListeners();
+
+const popupWithImage = new PopupWithImage('.popup_type_image');
+popupWithImage.setEventListeners();
 
 const userInfo = new UserInfo({
   name: '.profile__user-name',
   occupation: '.profile__user-occupation',
 });
+
 const editProfilePopup = new PopupWithForm({
   popupSelector: '.popup_type_profile',
   handleFormSubmit: (data) => {
-    userInfo.setUserInfo({
-      name: data.name,
-      occupation: data.occupation,
-    });
+    userInfo.setUserInfo(data);
     editProfilePopup.close();
   },
 });
@@ -47,7 +47,7 @@ const newPlacePopup = new PopupWithForm({
   popupSelector: '.popup_type_place',
   handleFormSubmit: (formData) => {
     const cardElement = createCard(formData);
-    cardsList.addItem(cardElement);
+    section.addNewItem(cardElement);
   },
 });
 newPlacePopup.setEventListeners();
@@ -60,22 +60,22 @@ newPlacePopupAddButton.addEventListener('click', () => {
 
 function createCard(data) {
   const card = new Card(data, '#elementTemplate', (name, link) => {
-    openImagePopup.open(name, link);
+    popupWithImage.open(name, link);
   });
   return card.generateCard();
 }
 
-const cardsList = new Section(
+const section = new Section(
   {
     items: initialCards,
     renderer: (item) => {
       const cardElement = createCard(item);
-      cardsList.addItem(cardElement);
+      section.addItem(cardElement);
     },
   },
   '.elements'
 );
-cardsList.renderItems();
+section.renderItems();
 const profileFormValidation = new FormValidator(validationConfig, profileForm);
 profileFormValidation.enableValidation();
 const placeFormValidation = new FormValidator(validationConfig, popupPlaceForm);

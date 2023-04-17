@@ -5,17 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <script type="module" src="./utils/constants.js"></script>
-    <script type="module" src="./pages/index.js"></script>
-    <script type="module" src="./components/Card.js"></script>
-    <script type="module" src="./components/FormValidator.js"></script>
   </head>
   <body class="page">
     <header class="header">
       <img
         class="header__logo"
-        src="./images/logo.svg"
+        src="<%=require('./images/logo.svg')%>"
         alt="Логотип компании."
       />
     </header>
@@ -24,7 +19,7 @@
       <section class="profile">
         <div class="profile__content">
           <img
-            src="./images/Avatar.png"
+            src="<%=require('./images/Avatar.png')%>"
             alt="Аватарка с изображением Кусто"
             class="profile__avatar"
           />
