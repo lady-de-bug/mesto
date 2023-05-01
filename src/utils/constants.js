@@ -8,38 +8,38 @@ export const validationConfig = {
   inactiveButtonClass: 'popup__submit-btn_disabled',
 };
 
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    alt: 'Горы Архыза летом.',
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    alt: 'Озеро Челябинска зимой.',
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    alt: 'Жилой массив состоящий из панельных домов.',
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    alt: 'Растительность у подножья горы.',
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    alt: 'Железная дорога, бегущая среди полей и  уходящая к горизонту.',
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    alt: 'Волны озера омывают скалистый берег.',
-  },
-];
+// export const initialCards = [
+//   {
+//     name: 'Архыз',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+//     alt: 'Горы Архыза летом.',
+//   },
+//   {
+//     name: 'Челябинская область',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+//     alt: 'Озеро Челябинска зимой.',
+//   },
+//   {
+//     name: 'Иваново',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
+//     alt: 'Жилой массив состоящий из панельных домов.',
+//   },
+//   {
+//     name: 'Камчатка',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
+//     alt: 'Растительность у подножья горы.',
+//   },
+//   {
+//     name: 'Холмогорский район',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
+//     alt: 'Железная дорога, бегущая среди полей и  уходящая к горизонту.',
+//   },
+//   {
+//     name: 'Байкал',
+//     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+//     alt: 'Волны озера омывают скалистый берег.',
+//   },
+// ];
 const profile = document.querySelector('.profile');
 export const editProfileButton = profile.querySelector('.profile__edit-button');
 export const placePopup = document.querySelector('.popup_type_place');
@@ -59,3 +59,11 @@ export const popupInputName = profilePopup.querySelector(
 export const popupInputOccupation = profilePopup.querySelector(
   '.popup__input_type_occupation'
 );
+export const popupEditAvatar = document.querySelector('.popup_type_avatar');
+export const avatarForm = popupEditAvatar.querySelector(
+  '.popup__form_type_avatar'
+);
+export const editAvatarButton = document.querySelector(
+  '.profile__avatar-button'
+);
+export const avatar = document.querySelector('.profile__avatar');

@@ -9,6 +9,8 @@
   background-size: 100%;
   cursor: pointer;
   flex-shrink: 0;
+  margin: 0 0 3px 0;
+  padding: 0;
 }
 
 .element__place-like:hover {
