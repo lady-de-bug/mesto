@@ -17,7 +17,7 @@ export default class Card {
     this._cardOwnerId = data.owner._id;
     this._handleDeleteButtonClick = handleDeleteButtonClick;
     this._handleLikeButtonClick = handleLikeButtonClick;
-    this._likes = data.likes; // first render 30[{},{},...]
+    this._likes = data.likes; // first render 30 cards
   }
 
   _getTemplate() {

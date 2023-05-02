@@ -50,6 +50,7 @@ const userInfo = new UserInfo({
 const editProfilePopup = new PopupWithForm({
   popupSelector: '.popup_type_profile',
   handleFormSubmit: (data) => {
+    editProfilePopup.isLoadingMessage(true);
     api
       .editUserInfo(data)
       .then((userData) => {
@@ -58,6 +59,9 @@ const editProfilePopup = new PopupWithForm({
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        editProfilePopup.isLoadingMessage(false);
       });
   },
 });
@@ -75,9 +79,18 @@ editProfileButton.addEventListener('click', () => {
 const newPlacePopup = new PopupWithForm({
   popupSelector: '.popup_type_place',
   handleFormSubmit: (formData) => {
-    api.addNewCard(formData).then((formData) => {
-      section.addNewItem(createCard(formData));
-    });
+    newPlacePopup.isLoadingMessage(true);
+    api
+      .addNewCard(formData)
+      .then((formData) => {
+        section.addNewItem(createCard(formData));
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        newPlacePopup.isLoadingMessage(false);
+      });
   },
 });
 
@@ -92,6 +105,7 @@ newPlacePopupAddButton.addEventListener('click', () => {
 const changeAvatarPopup = new PopupWithForm({
   popupSelector: '.popup_type_avatar',
   handleFormSubmit: (data) => {
+    changeAvatarPopup.isLoadingMessage(true);
     api
       .changeAvatar(data)
       .then((avatar) => {
@@ -100,6 +114,9 @@ const changeAvatarPopup = new PopupWithForm({
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        changeAvatarPopup.isLoadingMessage(false);
       });
   },
 });
@@ -149,10 +166,21 @@ function createCard(data) {
     handleLikeButtonClick: (card) => {
       const isLiked = card.getIsLiked();
       const cardId = card.getCardId();
-      api.updateLike(cardId, isLiked)
-      .then(updatedCard => {
-        card.updateLikes(updatedCard.likes)
-      })
+      api.updateLike(cardId, isLiked).then((updatedCard) => {
+        card.updateLikes(updatedCard.likes);
+      });
+
+    },
+  });
+  return card.generateCard();
+}
+
+const profileFormValidation = new FormValidator(validationConfig, profileForm);
+profileFormValidation.enableValidation();
+const placeFormValidation = new FormValidator(validationConfig, popupPlaceForm);
+placeFormValidation.enableValidation();
+const avatarFormValidation = new FormValidator(validationConfig, avatarForm);
+avatarFormValidation.enableValidation();
 
       // if (isLiked) {
       //   api.deleteLike(cardId)
@@ -165,14 +193,3 @@ function createCard(data) {
       //     card.updateLikes(updatedCard.likes)
       //   })
       // }
-    },
-  });
-  return card.generateCard();
-}
-
-const profileFormValidation = new FormValidator(validationConfig, profileForm);
-profileFormValidation.enableValidation();
-const placeFormValidation = new FormValidator(validationConfig, popupPlaceForm);
-placeFormValidation.enableValidation();
-const avatarFormValidation = new FormValidator(validationConfig, avatarForm);
-avatarFormValidation.enableValidation();
