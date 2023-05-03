@@ -148,6 +148,7 @@ function createCard(data) {
     handleCardClick: (name, link) => {
       popupWithImage.open(name, link);
     },
+
     userId: userId,
     handleDeleteButtonClick: (cardId) => {
       popupWithSubmit.open();
@@ -169,7 +170,6 @@ function createCard(data) {
       api.updateLike(cardId, isLiked).then((updatedCard) => {
         card.updateLikes(updatedCard.likes);
       });
-
     },
   });
   return card.generateCard();
@@ -182,14 +182,14 @@ placeFormValidation.enableValidation();
 const avatarFormValidation = new FormValidator(validationConfig, avatarForm);
 avatarFormValidation.enableValidation();
 
-      // if (isLiked) {
-      //   api.deleteLike(cardId)
-      //   .then(updatedCard => { // card = {name, likes: [{}], ...}
-      //     card.updateLikes(updatedCard.likes)
-      //   })
-      // } else {
-      //   api.setLike(cardId)
-      //   .then(updatedCard => { // card = {name, likes, ...}
-      //     card.updateLikes(updatedCard.likes)
-      //   })
-      // }
+// if (isLiked) {
+//   api.deleteLike(cardId)
+//   .then(updatedCard => { // card = {name, likes: [{}], ...}
+//     card.updateLikes(updatedCard.likes)
+//   })
+// } else {
+//   api.setLike(cardId)
+//   .then(updatedCard => { // card = {name, likes, ...}
+//     card.updateLikes(updatedCard.likes)
+//   })
+// }

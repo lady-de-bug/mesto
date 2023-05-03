@@ -54,11 +54,14 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._elementPlaceLike.addEventListener('click', () => this._handleLikeButtonClick(this));
+    this._elementPlaceLike.addEventListener('click', () =>
+      this._handleLikeButtonClick(this)
+    );
     this._elementTrashIcon.addEventListener('click', () =>
       this._handleDeleteButtonClick(this._cardId)
     );
-    this._elementImage.addEventListener('click', () => this._handleCardClick());
+
+    this._elementImage.addEventListener('click', () => this._handleCardClick(this._name, this._link));
   }
 
   getIsLiked() {
