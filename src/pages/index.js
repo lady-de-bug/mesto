@@ -84,6 +84,7 @@ const newPlacePopup = new PopupWithForm({
       .addNewCard(formData)
       .then((formData) => {
         section.addNewItem(createCard(formData));
+        newPlacePopup.close()
       })
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
